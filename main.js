@@ -1,14 +1,4 @@
 let hp = 20;
-function getMineTop() {
-  let mineTop = document.getElementById("boom").style["top"]
-  mineTop = parseInt(mineTop)
-  return mineTop
-}
-function getMineLeft() {
-    let mineLeft = document.getElementById("boom").style["left"]
-    mmineLeft = parseInt(mineLeft)
-    return mineLeft
-}
 function moveTank(e) {
 let keyCode = e.keyCode
 switch (keyCode){
