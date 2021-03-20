@@ -20,6 +20,9 @@ function moveDown() {
         document.getElementById("tank").style["top"] = `${top}px`;
         document.getElementById("tank").style["transform"] = "rotate(180deg)"
     } 
+    if(stepOnMine()) {
+        hit()
+    }
 }
 function moveUp() {
     let top = document.getElementById("tank").style["top"];
@@ -29,6 +32,9 @@ function moveUp() {
         document.getElementById("tank").style["top"] = `${top}px`;
         document.getElementById("tank").style["transform"] = "rotate(0deg)"
     }
+    if(stepOnMine()) {
+        hit()
+    }
 }
 function moveLeft() {
     let left = document.getElementById("tank").style["left"];
@@ -37,6 +43,9 @@ function moveLeft() {
         left = left - 30;
         document.getElementById("tank").style["left"] = `${left}px`;
         document.getElementById("tank").style["transform"] = "rotate(-90deg)"
+    }
+    if(stepOnMine()) {
+        hit()
     }   
 }
 function moveRight() {
@@ -46,6 +55,9 @@ function moveRight() {
         left = left + 30;
         document.getElementById("tank").style["left"] = `${left}px`;
         document.getElementById("tank").style["transform"] = "rotate(90deg)"
+    }
+    if(stepOnMine()) {
+        hit()
     }
 }
 function hit() {
@@ -117,4 +129,16 @@ function hit() {
     }
     document.getElementById("hp").style["width"] = `${thanhmau}px`
     document.getElementById("hp").style["background-color"] = mau
+}
+function stepOnMine() {
+    let leftMine = parseInt(document.getElementById("boom").style["left"])
+    let topMine = parseInt(document.getElementById("boom").style["top"])
+    let leftTank = parseInt(document.getElementById("tank").style["left"])
+    let topTank = parseInt(document.getElementById("tank").style["top"])
+    let isOnMine = (leftMine == leftTank && topMine == topTank)
+    return isOnMine
+}
+function explode() {
+    document.getElementById("tank").src = "explosion.png"
+    document.getElementById("boom").style.visibility = "hidden"
 }
