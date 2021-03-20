@@ -124,7 +124,7 @@ function hit() {
         mau = "red"
             break
         case 0 : 
-            document.getElementById("tank").src = "explosion.png"
+            explode()
             break
     }
     document.getElementById("hp").style["width"] = `${thanhmau}px`
@@ -141,4 +141,5 @@ function stepOnMine() {
 function explode() {
     document.getElementById("tank").src = "explosion.png"
     document.getElementById("boom").style.visibility = "hidden"
+    document.getElementById("die").innerText= "GAME OVER"
 }
