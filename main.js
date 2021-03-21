@@ -143,3 +143,19 @@ function explode() {
     document.getElementById("boom").style.visibility = "hidden"
     document.getElementById("die").innerText= "GAME OVER"
 }
+function choilai() {
+    let topTank = 30*Math.floor(Math.random() * 10)
+    let leftTank = 30*Math.floor(Math.random() * 10)
+    let topMine = 30*Math.floor(Math.random() * 10)
+    let leftMine = 30*Math.floor(Math.random() * 10)
+    document.getElementById("boom").style.visibility ="visible"
+    document.getElementById("tank").src = "tank.png"
+    document.getElementById("die").innerText = ""
+    document.getElementById("tank").style["top"] = `${topTank}px`
+    document.getElementById("tank").style["left"] = `${leftTank}px`
+    document.getElementById("boom").style["left"] = `${topMine}px`
+    document.getElementById("boom").style["left"] = `${leftMine}px`
+    document.getElementById("hp").style["width"] = "200px"
+    document.getElementById("hp").style["background-color"] = "green"
+    document.getElementById("hp").innerText = "20"
+}
